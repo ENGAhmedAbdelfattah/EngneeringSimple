@@ -85,7 +85,7 @@ function Booking(props) {
         .padStart(2, 0)}`,
     ],
   });
-  const [bookingText] = useState({
+  const [bookingText, setBookingText] = useState({
     mainHeader: { en: `Booking schedule`, ar: `جدول الحجز` },
     paragraph: {
       en: `Choose the time for your first lesson. The timings are displayed in your local timezone.`,
@@ -286,69 +286,119 @@ function Booking(props) {
       ar: "احجز الآن",
     },
   });
-  const handleBookingBtn = () => {};
+  const [popUpBooking, setPopUpBooking] = useState({
+    states: true,
+    day: "",
+    timingOrder: "",
+  });
+  const handleBookingBtn = (el, secEl) => {
+    // clone
+    const popUpBookingClone = { ...popUpBooking };
+    // edit
+    popUpBookingClone.states =
+      popUpBookingClone.states === false ? true : false;
+    popUpBookingClone.day = el;
+    popUpBookingClone.timingOrder = secEl;
+    console.log(el, secEl, popUpBookingClone);
+    // setState
+    setPopUpBooking(popUpBookingClone);
+  };
   return (
-    <div className="booking-page">
-      <h2 className="schedule-header">
-        {lang === "en" ? bookingText.mainHeader.en : bookingText.mainHeader.ar}
-      </h2>
-      <p className="schedule-paragraph">
-        {lang === "en" ? bookingText.paragraph.en : bookingText.paragraph.ar}
-      </p>
+    <>
+      <div className="booking-page">
+        <h2 className="schedule-header">
+          {lang === "en"
+            ? bookingText.mainHeader.en
+            : bookingText.mainHeader.ar}
+        </h2>
+        <p className="schedule-paragraph">
+          {lang === "en" ? bookingText.paragraph.en : bookingText.paragraph.ar}
+        </p>
 
-      <div className="booking-table">
-        {Object.keys(bookingText.table.tableMainColumn).map((el, inx) => (
-          <div key={inx + el} className="days-columns">
-            <div className="cell cell-columns cell-days">
-              {lang === "en"
-                ? bookingText.table.tableMainColumn[el].name.en
-                : bookingText.table.tableMainColumn[el].name.ar}
+        <div className="booking-table">
+          {Object.keys(bookingText.table.tableMainColumn).map((el, inx) => (
+            <div key={inx + el} className="days-columns">
+              <div className="cell cell-columns cell-days">
+                {lang === "en"
+                  ? bookingText.table.tableMainColumn[el].name.en
+                  : bookingText.table.tableMainColumn[el].name.ar}
+              </div>
+              {Object.keys(bookingText.table.tableMainColumn[el].timings).map(
+                (secEl, inx) =>
+                  bookingText.table.tableMainColumn[el].timings[secEl]
+                    .available ? (
+                    <div key={inx + secEl} className="cell cell-columns">
+                      <div>
+                        {lang === "en"
+                          ? tableMainRow.en[inx]
+                          : tableMainRow.ar[inx]}
+                      </div>
+                      <span>
+                        {lang === "en"
+                          ? bookingText.availableText.available.en
+                          : bookingText.availableText.available.ar}
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => handleBookingBtn(el, secEl)}
+                      >
+                        {lang === "en"
+                          ? bookingText.booking.en
+                          : bookingText.booking.ar}
+                      </button>
+                    </div>
+                  ) : (
+                    <div key={inx + secEl} className="cell cell-columns">
+                      <div>
+                        {lang === "en"
+                          ? tableMainRow.en[inx]
+                          : tableMainRow.ar[inx]}
+                      </div>
+                      <span>
+                        {lang === "en"
+                          ? bookingText.availableText.notAvailable.en
+                          : bookingText.availableText.notAvailable.ar}
+                      </span>
+                      <button disable="true" type="button">
+                        {lang === "en"
+                          ? bookingText.booking.en
+                          : bookingText.booking.ar}
+                      </button>
+                    </div>
+                  )
+              )}
             </div>
-            {Object.keys(bookingText.table.tableMainColumn[el].timings).map(
-              (secEl, inx) =>
-                bookingText.table.tableMainColumn[el].timings[secEl]
-                  .available ? (
-                  <div key={inx + secEl} className="cell cell-columns">
-                    <div>
-                      {lang === "en"
-                        ? tableMainRow.en[inx]
-                        : tableMainRow.ar[inx]}
-                    </div>
-                    <span>
-                      {lang === "en"
-                        ? bookingText.availableText.available.en
-                        : bookingText.availableText.available.ar}
-                    </span>
-                    <button type="button" onClick={handleBookingBtn}>
-                      {lang === "en"
-                        ? bookingText.booking.en
-                        : bookingText.booking.ar}
-                    </button>
-                  </div>
-                ) : (
-                  <div key={inx + secEl} className="cell cell-columns">
-                    <div>
-                      {lang === "en"
-                        ? tableMainRow.en[inx]
-                        : tableMainRow.ar[inx]}
-                    </div>
-                    <span>
-                      {lang === "en"
-                        ? bookingText.availableText.notAvailable.en
-                        : bookingText.availableText.notAvailable.ar}
-                    </span>
-                    <button disable="true" type="button">
-                      {lang === "en"
-                        ? bookingText.booking.en
-                        : bookingText.booking.ar}
-                    </button>
-                  </div>
-                )
-            )}
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+      {popUpBooking.states && (
+        <div className="btn-form">
+          <form
+            action="mailto:contact@yourdomain.com"
+            method="POST"
+            encType="text/plain"
+            name="EmailForm"
+          >
+            <div className="form-item">
+              <label htmlFor="name">Name:</label>
+              <input type="text" id="name" name="name" />
+            </div>
+            <div className="form-item">
+              <label htmlFor="ContactComments">Message:</label>
+              <textarea
+                name="”ontactComments”"
+                id="”ontactComments”"
+                cols="20"
+                rows="6"
+              ></textarea>
+            </div>
+            <div className="form-item">
+              <input type="submit" value="Send" />
+            </div>
+          </form>
+        </div>
+      )}
+    </>
   );
 }
 
