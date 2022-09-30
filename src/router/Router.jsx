@@ -8,15 +8,15 @@ import Connect from "./../component/pages/Connect";
 import NotFound from "./../component/pages/NotFound";
 
 function Router(props) {
-  const {lang} = props
+  const { lang } = props;
   return (
     <Routes>
-      <Route path="/Home" element={<Home lang={lang} />} />
-      <Route path="/" element={<Navigate to="/Home" />} />
-      <Route path="/Booking" element={<Booking lang={lang} />} />
-      <Route path="/Lecturer" element={<Lecturer />} />
-      <Route path="/AboutUs" element={<AboutUs />} />
-      <Route path="/Connect" element={<Connect />} />
+      <Route exact path="/Home" element={<Home lang={lang} />} />
+      <Route exact path="/" element={<Navigate to="/Home" />} />
+      <Route exact path="/Booking" element={<Booking lang={lang} />} />
+      <Route exact path="/Lecturer" element={<Lecturer />} />
+      <Route exact path="/AboutUs" element={<AboutUs />} />
+      <Route exact path="/Connect" element={<Connect />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
