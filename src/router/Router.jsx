@@ -11,9 +11,9 @@ function Router(props) {
   const {lang} = props
   return (
     <Routes>
-      <Route path="/Home" element={<Home lang = {lang} />} />
+      <Route path="/Home" element={<Home lang={lang} />} />
       <Route path="/" element={<Navigate to="/Home" />} />
-      <Route path="/Booking" element={<Booking />} />
+      <Route path="/Booking" element={<Booking lang={lang} />} />
       <Route path="/Lecturer" element={<Lecturer />} />
       <Route path="/AboutUs" element={<AboutUs />} />
       <Route path="/Connect" element={<Connect />} />

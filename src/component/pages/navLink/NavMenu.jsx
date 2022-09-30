@@ -37,8 +37,8 @@ function NavMenu(props) {
 
       <ul className="nav-menu">
         {paths.map((el, inx) => (
-          <NavLink to={"/" + el}>
-            <li key={inx + el}>
+          <NavLink to={"/" + el} key={inx + el}>
+            <li>
               <img src={sources[inx]} alt="" />
               <span>
                 {lang === "en"

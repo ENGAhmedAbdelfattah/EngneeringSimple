@@ -242,7 +242,6 @@ $quantity: 15;
   justify-content: center;
   align-items: center;
   height: 85vh;
-  color: #4c81e9;
   flex-direction: row;
   text-align: start;
   font-size: 14px;
@@ -263,6 +262,7 @@ $quantity: 15;
       }
     }
     h1 {
+      color: #539bf3;
       font-size: 35px;
       @media (max-width: 767.98px) {
         font-size: 20px;
@@ -570,6 +570,75 @@ $animDuration: 5s;
   }
 }
 // E:video section
+// S: Booking page
+.booking-page {
+  text-align: center;
+  color: #e9dfdf;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .days-columns {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @media (max-width: 767.98px) {
+      width: 100%;
+    }
+    @media (min-width: 768px) and (max-width: 991.98px) {
+      width: calc(33.3% - 8px);
+    }
+  }
+  .cell {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px;
+    width: 120px;
+    @media (max-width: 767.98px) {
+      width: 100%;
+    }
+  }
+  .cell-columns {
+    border-bottom: 1px dashed cyan;
+    button {
+      border-radius: 8px;
+      padding: 2px 5px;
+      cursor: pointer;
+      &[disable="true"] {
+        color: rgb(228, 226, 226);
+        background-color: #aaa;
+        cursor: default;
+      }
+    }
+  }
+  .cell-days {
+    border-bottom: 1px solid cyan;
+    font-size: 21px;
+    color: cyan;
+    height: 70px;
+  }
+  h2.schedule-header {
+    font-size: 35px;
+    color: #539bf3;
+    @media (max-width: 767.98px) {
+      font-size: 30px;
+    }
+  }
+  p.schedule-paragraph {
+    font-size: 16px;
+    color: #ccc;
+  }
+  div.booking-table {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 50px;
+  }
+}
+// E: Booking page
 // rtl edit
 [dir="rtl"] {
   .app-box {

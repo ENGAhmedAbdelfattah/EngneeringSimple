@@ -83,9 +83,9 @@ function Home(props) {
               height="315"
               src="https://www.youtube.com/embed/wdZwj_4uMS8"
               title="YouTube video player"
-              frameborder="0"
+              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen="1"
+              allowFullScreen="1"
             ></iframe>
           </div>
         </div>
