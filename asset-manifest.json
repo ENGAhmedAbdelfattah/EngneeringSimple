@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.0a7397c2.css",
+    "main.js": "/static/js/main.c57909d2.js",
+    "static/js/787.ad8b2994.chunk.js": "/static/js/787.ad8b2994.chunk.js",
+    "static/media/landing.png": "/static/media/landing.fca218f5a0ed0ae4488b.png",
+    "static/media/lamp.gif": "/static/media/lamp.cdff0dcb9ce313b176dc.gif",
+    "static/media/lecturer.svg": "/static/media/lecturer.a042a87399427b0409c61c13052cc0fe.svg",
+    "static/media/contact.svg": "/static/media/contact.4a4accd5db130e84cc611b9b7551cb33.svg",
+    "static/media/about-us.svg": "/static/media/about-us.4a30d0864b2ee2083d036ccd347ba8d8.svg",
+    "static/media/booking-btn.svg": "/static/media/booking-btn.8cbbc3ce336184cc5dd37af64af4b3b2.svg",
+    "static/media/booking.svg": "/static/media/booking.2aabd3379b8741beb0df64c8e3904914.svg",
+    "static/media/home.svg": "/static/media/home.e62c4b0d1f866326dc71dff4ee00ded0.svg",
+    "index.html": "/index.html",
+    "main.0a7397c2.css.map": "/static/css/main.0a7397c2.css.map",
+    "main.c57909d2.js.map": "/static/js/main.c57909d2.js.map",
+    "787.ad8b2994.chunk.js.map": "/static/js/787.ad8b2994.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0a7397c2.css",
+    "static/js/main.c57909d2.js"
+  ]
+}
