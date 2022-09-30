@@ -39,6 +39,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 1000;
     transition: width 0.3s, overflow 0.3s;
     ul.nav-menu {
       list-style: none;
@@ -80,7 +81,7 @@ body {
         }
       }
       .lang {
-        margin: -6px auto 0;
+        margin: 20px auto 0;
         color: #fff;
         text-align: center;
         font-size: 22px;
@@ -90,6 +91,7 @@ body {
         border-radius: 50%;
         width: 30px;
         height: 30px;
+        padding: 16px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -145,196 +147,6 @@ body {
   .router-wrapped {
     flex-grow: 1;
     margin-left: 70px;
-  }
-}
-[dir="rtl"] {
-  .app-box {
-    display: flex;
-    .nav-wrapped {
-      width: 170px;
-      height: 100%;
-      padding: 15px;
-      background-color: #1d1280;
-      background-image: linear-gradient(to right, #160d5f, #4a3bd1);
-      box-shadow: 0 0 5px rgba(103, 146, 224);
-      position: fixed;
-      top: 0;
-      /* left to right  */
-      right: 0;
-      transition: width 0.3s, overflow 0.3s;
-      ul.nav-menu {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        a {
-          text-decoration: none;
-          color: rgb(228, 222, 222);
-          li {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-            padding: 15px;
-            position: relative;
-            img {
-              display: block;
-              width: 35px;
-              height: 35px;
-              padding-left: 5px;
-            }
-            &::before {
-              content: "";
-              position: absolute;
-              inset: 0;
-              border-radius: 50px;
-              padding: 5px;
-              background: linear-gradient(45deg, rgb(0, 47, 255), #09bef5);
-              -webkit-mask: linear-gradient(#fff 0 0) content-box,
-                linear-gradient(#fff 0 0);
-              -webkit-mask-composite: xor;
-              mask-composite: exclude;
-            }
-          }
-          &.active li::before {
-            background: linear-gradient(45deg, #09bef5, rgb(0, 47, 255));
-          }
-        }
-      }
-      &.close-nav-wrapped {
-        width: 70px;
-        padding: 5px;
-        overflow: hidden;
-        span {
-          display: none;
-        }
-      }
-      .open-icon {
-        width: 55px;
-        height: 40px;
-        padding: 5px;
-        margin-bottom: 20px;
-        position: relative;
-        overflow: hidden;
-        transition: transform 0.3s;
-        cursor: pointer;
-        > span {
-          display: block;
-          width: 100%;
-          height: 3px;
-          background-color: black;
-          margin-top: 5px;
-          background: linear-gradient(45deg, rgb(2, 18, 92), #1ba7d1);
-          box-shadow: 0 0 7px 2px #fff;
-          transition: transform 0.3s;
-        }
-        &.close-icon {
-          /* 100px to -100px  */
-          transform: translateX(-100px) translateY(-10px);
-          width: 30px;
-          span:is(:first-child, :last-child) {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-          }
-          span:first-child {
-            transform: translate(-50%, -50%) rotate(-45deg);
-          }
-          span:last-child {
-            transform: translate(-50%, -50%) rotate(45deg);
-          }
-          span:nth-child(2) {
-            display: none;
-          }
-        }
-      }
-    }
-    .router-wrapped {
-      flex-grow: 1;
-      /* margin-left to margin-right  */
-      margin-right: 70px;
-    }
-  }
-  // Quantity should be the same in PUG
-  $quantity: 15;
-
-  .firefly {
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    width: 0.4vw;
-    height: 0.4vw;
-    margin: -0.2vw 0 0 9.8vw;
-    animation: ease 200s alternate infinite;
-    pointer-events: none;
-
-    &::before,
-    &::after {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      transform-origin: -10vw;
-    }
-    &::before {
-      background: black;
-      opacity: 0.4;
-      animation: drift ease alternate infinite;
-    }
-    &::after {
-      background: white;
-      opacity: 0;
-      box-shadow: 0 0 0vw 0vw yellow;
-      animation: drift ease alternate infinite, flash ease infinite;
-    }
-  }
-
-  // Randomize Fireflies Motion
-  @for $i from 1 through $quantity {
-    $steps: random(12) + 16;
-    $rotationSpeed: random(10) + 8s;
-
-    .firefly:nth-child(#{$i}) {
-      animation-name: move#{$i};
-      &::before {
-        animation-duration: #{$rotationSpeed};
-      }
-      &::after {
-        animation-duration: #{$rotationSpeed}, random(6000) + 5000ms;
-        animation-delay: 0ms, random(8000) + 500ms;
-      }
-      @keyframes move#{$i} {
-        @for $step from 1 through $steps {
-          #{$step * (100 / $steps)}% {
-            transform: translateX(random(100) - 50vw)
-              translateY(random(100) - 50vh)
-              scale(random(75) / 100 + 0.25);
-          }
-        }
-      }
-
-      @keyframes drift {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
-      }
-
-      @keyframes flash {
-        0%,
-        30%,
-        100% {
-          opacity: 0;
-          box-shadow: 0 0 0vw 0vw yellow;
-        }
-
-        5% {
-          opacity: 1;
-          box-shadow: 0 0 2vw 0.4vw yellow;
-        }
-      }
-    }
   }
 }
 // E:navbar and structure of site
@@ -457,8 +269,30 @@ $quantity: 15;
       }
     }
     p {
-      color: #a7bde9;
+      color: #e9dfdf;
       font-size: 20px;
+    }
+    .booking-btn {
+      background-color: transparent;
+      margin-top: 12px;
+      border: none;
+      outline: none;
+      span {
+        background-color: rgba(103, 138, 252, 0.288);
+        color: cyan;
+        border-radius: 8px;
+        font-size: 25px;
+        cursor: pointer;
+        vertical-align: top;
+        padding: 2px 10px;
+        &:hover {
+          background-color: rgba(51, 96, 247, 0.288);
+          color: rgb(20, 167, 167);
+          + img {
+            transform: translate(-60px, -5px);
+          }
+        }
+      }
     }
   }
   .img-handle {
@@ -721,8 +555,8 @@ $animDuration: 5s;
       width: 760px;
       height: 515px;
       @media (max-width: 767.98px) {
-        width: 300px;
-        height: 300px;
+        width: 230px;
+        height: 230px;
       }
       @media (min-width: 768px) {
         width: 450px;
@@ -736,3 +570,63 @@ $animDuration: 5s;
   }
 }
 // E:video section
+// rtl edit
+[dir="rtl"] {
+  .app-box {
+    .nav-wrapped {
+      /* left to right  */
+      right: 0;
+      ul.nav-menu {
+        a {
+          li {
+            img {
+              // right to left
+              padding-left: 5px;
+            }
+          }
+        }
+      }
+      .open-icon {
+        &.close-icon {
+          /* 100px to -100px  */
+          transform: translateX(-100px) translateY(-10px);
+        }
+      }
+    }
+    .router-wrapped {
+      /* margin-left to margin-right  */
+      margin-right: 70px;
+    }
+  }
+  // S:landing
+  .flex-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+    color: #4c81e9;
+    flex-direction: row;
+    text-align: start;
+    font-size: 14px;
+    @media (max-width: 768px) {
+      flex-direction: column;
+      text-align: center;
+    }
+    .text-box {
+      .booking-btn {
+        span {
+          + img {
+            transform: translate(160px, 5px);
+          }
+          &:hover {
+            + img {
+              // -60px to 60px
+              transform: translate(120px, -5px);
+            }
+          }
+        }
+      }
+    }
+  }
+  // E:landing
+}

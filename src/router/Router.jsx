@@ -7,10 +7,11 @@ import AboutUs from "./../component/pages/AboutUs";
 import Connect from "./../component/pages/Connect";
 import NotFound from "./../component/pages/NotFound";
 
-function Router() {
+function Router(props) {
+  const {lang} = props
   return (
     <Routes>
-      <Route path="/Home" element={<Home />} />
+      <Route path="/Home" element={<Home lang = {lang} />} />
       <Route path="/" element={<Navigate to="/Home" />} />
       <Route path="/Booking" element={<Booking />} />
       <Route path="/Lecturer" element={<Lecturer />} />

@@ -7,6 +7,10 @@ import aboutus from "./../../../Assets/about-us.svg";
 import contact from "./../../../Assets/contact.svg";
 
 function NavMenu(props) {
+  const { status, onHandleClick, onHandleLang, lang } = props;
+  // variable
+  const styleClassTwo = status ? "open-icon close-icon" : "open-icon";
+  // state
   const [paths] = useState([
     "Home",
     "Booking",
@@ -14,19 +18,18 @@ function NavMenu(props) {
     "AboutUs",
     "Connect",
   ]);
-  const [textLink] = useState([
-    "Home",
-    "Booking",
-    "Lecturer",
-    "About us",
-    "Connect",
-  ]);
+  const [navMenuText] = useState({
+    textLink: {
+      en: ["Home", "Booking", "Lecturer", "About us", "Connect"],
+      ar: ["مسكن", "الحجز", "المحاضر", "معلومات", "الاتصال"],
+    },
+    langLabel: { en: "en", ar: "ar" },
+  });
 
   const [sources] = useState([home, booking, lecturer, aboutus, contact]);
-  const styleClassTwo = props.status ? "open-icon close-icon" : "open-icon";
   return (
     <>
-      <div className={styleClassTwo} onClick={props.onHandleClick}>
+      <div className={styleClassTwo} onClick={onHandleClick}>
         <span></span>
         <span></span>
         <span></span>
@@ -37,11 +40,19 @@ function NavMenu(props) {
           <NavLink to={"/" + el}>
             <li key={inx + el}>
               <img src={sources[inx]} alt="" />
-              <span>{textLink[inx]}</span>
+              <span>
+                {lang === "en"
+                  ? navMenuText.textLink.en[inx]
+                  : navMenuText.textLink.ar[inx]}
+              </span>
             </li>
           </NavLink>
         ))}
-        <li className="lang">Ar</li>
+        <li className="lang" onClick={onHandleLang}>
+          {lang === navMenuText.langLabel.en
+            ? navMenuText.langLabel.ar
+            : navMenuText.langLabel.en}
+        </li>
       </ul>
     </>
   );
