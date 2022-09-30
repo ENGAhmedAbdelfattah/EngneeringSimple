@@ -611,6 +611,9 @@ $animDuration: 5s;
         color: rgb(228, 226, 226);
         background-color: #aaa;
         cursor: default;
+        border: none;
+        outline: none;
+        pointer-events: none;
       }
     }
   }

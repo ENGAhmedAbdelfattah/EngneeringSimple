@@ -286,6 +286,7 @@ function Booking(props) {
       ar: "احجز الآن",
     },
   });
+  const handleBookingBtn = () => {};
   return (
     <div className="booking-page">
       <h2 className="schedule-header">
@@ -318,7 +319,7 @@ function Booking(props) {
                         ? bookingText.availableText.available.en
                         : bookingText.availableText.available.ar}
                     </span>
-                    <button>
+                    <button type="button" onClick={handleBookingBtn}>
                       {lang === "en"
                         ? bookingText.booking.en
                         : bookingText.booking.ar}
@@ -336,7 +337,7 @@ function Booking(props) {
                         ? bookingText.availableText.notAvailable.en
                         : bookingText.availableText.notAvailable.ar}
                     </span>
-                    <button disable="true">
+                    <button disable="true" type="button">
                       {lang === "en"
                         ? bookingText.booking.en
                         : bookingText.booking.ar}
