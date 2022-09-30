@@ -85,7 +85,6 @@ function Booking(props) {
         .padStart(2, 0)}`,
     ],
   });
-  let theDate = new Date("2022-1-1T00:00:00Z").getHours();
   const [bookingText] = useState({
     mainHeader: { en: `Booking schedule`, ar: `جدول الحجز` },
     paragraph: {
