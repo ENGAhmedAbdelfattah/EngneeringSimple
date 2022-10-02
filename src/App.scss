@@ -646,14 +646,18 @@ $animDuration: 5s;
   }
 }
 .btn-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 750px;
+  padding: 15px;
+  min-height: 440px;
   background-color: blue;
   position: fixed;
   top: 50vh;
-  left: 50vw;
+  left: calc(60px + 50%);
   transform: translate(-50%, -50%);
-  width: 50%;
-  display: flex;
-  justify-content: center;
+  border-radius: 15px;
   label,
   input,
   textarea {
@@ -664,22 +668,55 @@ $animDuration: 5s;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      margin: 15px 10px;
+      margin: 35px 0;
       label {
         display: flex;
         justify-content: space-between;
         text-align: start;
         min-width: 110px;
       }
-      input,
-      textarea {
-        min-width: 250px;
+      .input-box {
+        position: relative;
+        input,
+        textarea {
+          min-width: 250px;
+          display: block;
+          position: relative;
+        }
+        textarea {
+          resize: none;
+        }
+        .error-massage {
+          color: rgb(255, 110, 25);
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          transform: translateY(100%);
+        }
       }
-      textarea {
-        resize: none;
+      a.send-link {
+        color: rgb(49, 77, 235);
+        text-decoration: none;
+        background-color: cyan;
+        padding: 5px 8px;
+        border-radius: 8px;
+        text-align: center;
       }
-      input[type="submit"] {
-        min-width: 150px;
+      div.send-link {
+        color: rgb(107, 126, 235);
+        text-decoration: none;
+        background-color: rgb(186, 194, 240);
+        padding: 5px 8px;
+        border-radius: 8px;
+        text-align: center;
+        width: fit-content;
+        margin: auto;
+      }
+    }
+    .note {
+      p {
+        margin: auto;
+        text-align: center;
       }
     }
   }

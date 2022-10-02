@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import FormBooking from "../FormBooking";
 
 function Booking(props) {
   const { lang } = props;
@@ -85,7 +86,7 @@ function Booking(props) {
         .padStart(2, 0)}`,
     ],
   });
-  const [bookingText, setBookingText] = useState({
+  const [bookingText] = useState({
     mainHeader: { en: `Booking schedule`, ar: `جدول الحجز` },
     paragraph: {
       en: `Choose the time for your first lesson. The timings are displayed in your local timezone.`,
@@ -98,23 +99,23 @@ function Booking(props) {
           name: { en: "Saturday", ar: "السبت" },
           timings: {
             one: {
-              value: tableMainRow[0],
+              value: { en: tableMainRow.en[0], ar: tableMainRow.ar[0] },
               available: false,
             },
             two: {
-              value: tableMainRow[1],
+              value: { en: tableMainRow.en[1], ar: tableMainRow.ar[1] },
               available: true,
             },
             three: {
-              value: tableMainRow[2],
+              value: { en: tableMainRow.en[2], ar: tableMainRow.ar[2] },
               available: true,
             },
             four: {
-              value: tableMainRow[3],
+              value: { en: tableMainRow.en[3], ar: tableMainRow.ar[3] },
               available: true,
             },
             five: {
-              value: tableMainRow[4],
+              value: { en: tableMainRow.en[4], ar: tableMainRow.ar[4] },
               available: true,
             },
           },
@@ -123,23 +124,23 @@ function Booking(props) {
           name: { en: "Sunday", ar: "الأحد" },
           timings: {
             one: {
-              value: tableMainRow[0],
+              value: { en: tableMainRow.en[0], ar: tableMainRow.ar[0] },
               available: true,
             },
             two: {
-              value: tableMainRow[1],
+              value: { en: tableMainRow.en[1], ar: tableMainRow.ar[1] },
               available: true,
             },
             three: {
-              value: tableMainRow[2],
+              value: { en: tableMainRow.en[2], ar: tableMainRow.ar[2] },
               available: true,
             },
             four: {
-              value: tableMainRow[3],
+              value: { en: tableMainRow.en[3], ar: tableMainRow.ar[3] },
               available: true,
             },
             five: {
-              value: tableMainRow[4],
+              value: { en: tableMainRow.en[4], ar: tableMainRow.ar[4] },
               available: true,
             },
           },
@@ -148,23 +149,23 @@ function Booking(props) {
           name: { en: "Monday", ar: "الاثنين" },
           timings: {
             one: {
-              value: tableMainRow[0],
+              value: { en: tableMainRow.en[0], ar: tableMainRow.ar[0] },
               available: true,
             },
             two: {
-              value: tableMainRow[1],
+              value: { en: tableMainRow.en[1], ar: tableMainRow.ar[1] },
               available: true,
             },
             three: {
-              value: tableMainRow[2],
+              value: { en: tableMainRow.en[2], ar: tableMainRow.ar[2] },
               available: true,
             },
             four: {
-              value: tableMainRow[3],
+              value: { en: tableMainRow.en[3], ar: tableMainRow.ar[3] },
               available: true,
             },
             five: {
-              value: tableMainRow[4],
+              value: { en: tableMainRow.en[4], ar: tableMainRow.ar[4] },
               available: true,
             },
           },
@@ -173,23 +174,23 @@ function Booking(props) {
           name: { en: "Tuesday", ar: "الثلاثاء" },
           timings: {
             one: {
-              value: tableMainRow[0],
+              value: { en: tableMainRow.en[0], ar: tableMainRow.ar[0] },
               available: true,
             },
             two: {
-              value: tableMainRow[1],
+              value: { en: tableMainRow.en[1], ar: tableMainRow.ar[1] },
               available: true,
             },
             three: {
-              value: tableMainRow[2],
+              value: { en: tableMainRow.en[2], ar: tableMainRow.ar[2] },
               available: true,
             },
             four: {
-              value: tableMainRow[3],
+              value: { en: tableMainRow.en[3], ar: tableMainRow.ar[3] },
               available: true,
             },
             five: {
-              value: tableMainRow[4],
+              value: { en: tableMainRow.en[4], ar: tableMainRow.ar[4] },
               available: true,
             },
           },
@@ -198,23 +199,23 @@ function Booking(props) {
           name: { en: "Wednesday", ar: "الأربعاء" },
           timings: {
             one: {
-              value: tableMainRow[0],
+              value: { en: tableMainRow.en[0], ar: tableMainRow.ar[0] },
               available: true,
             },
             two: {
-              value: tableMainRow[1],
+              value: { en: tableMainRow.en[1], ar: tableMainRow.ar[1] },
               available: true,
             },
             three: {
-              value: tableMainRow[2],
+              value: { en: tableMainRow.en[2], ar: tableMainRow.ar[2] },
               available: true,
             },
             four: {
-              value: tableMainRow[3],
+              value: { en: tableMainRow.en[3], ar: tableMainRow.ar[3] },
               available: true,
             },
             five: {
-              value: tableMainRow[4],
+              value: { en: tableMainRow.en[4], ar: tableMainRow.ar[4] },
               available: true,
             },
           },
@@ -223,23 +224,23 @@ function Booking(props) {
           name: { en: "Thursday", ar: "الخميس" },
           timings: {
             one: {
-              value: tableMainRow[0],
+              value: { en: tableMainRow.en[0], ar: tableMainRow.ar[0] },
               available: true,
             },
             two: {
-              value: tableMainRow[1],
+              value: { en: tableMainRow.en[1], ar: tableMainRow.ar[1] },
               available: true,
             },
             three: {
-              value: tableMainRow[2],
+              value: { en: tableMainRow.en[2], ar: tableMainRow.ar[2] },
               available: true,
             },
             four: {
-              value: tableMainRow[3],
+              value: { en: tableMainRow.en[3], ar: tableMainRow.ar[3] },
               available: true,
             },
             five: {
-              value: tableMainRow[4],
+              value: { en: tableMainRow.en[4], ar: tableMainRow.ar[4] },
               available: true,
             },
           },
@@ -248,23 +249,23 @@ function Booking(props) {
           name: { en: "Friday", ar: "الجمعة" },
           timings: {
             one: {
-              value: tableMainRow[0],
+              value: { en: tableMainRow.en[0], ar: tableMainRow.ar[0] },
               available: true,
             },
             two: {
-              value: tableMainRow[1],
+              value: { en: tableMainRow.en[1], ar: tableMainRow.ar[1] },
               available: true,
             },
             three: {
-              value: tableMainRow[2],
+              value: { en: tableMainRow.en[2], ar: tableMainRow.ar[2] },
               available: true,
             },
             four: {
-              value: tableMainRow[3],
+              value: { en: tableMainRow.en[3], ar: tableMainRow.ar[3] },
               available: true,
             },
             five: {
-              value: tableMainRow[4],
+              value: { en: tableMainRow.en[4], ar: tableMainRow.ar[4] },
               available: true,
             },
           },
@@ -288,8 +289,9 @@ function Booking(props) {
   });
   const [popUpBooking, setPopUpBooking] = useState({
     states: true,
-    day: "",
+    day: { en: "Saturday", ar: "" },
     timingOrder: "",
+    timing: { en: "", ar: "" },
   });
   const handleBookingBtn = (el, secEl) => {
     // clone
@@ -297,9 +299,13 @@ function Booking(props) {
     // edit
     popUpBookingClone.states =
       popUpBookingClone.states === false ? true : false;
-    popUpBookingClone.day = el;
+    popUpBookingClone.day.en = bookingText.table.tableMainColumn[el].name.en;
+    popUpBookingClone.day.ar = bookingText.table.tableMainColumn[el].name.ar;
     popUpBookingClone.timingOrder = secEl;
-    console.log(el, secEl, popUpBookingClone);
+    popUpBookingClone.timing.en =
+      bookingText.table.tableMainColumn[el].timings[secEl].value.en;
+    popUpBookingClone.timing.ar =
+      bookingText.table.tableMainColumn[el].timings[secEl].value.ar;
     // setState
     setPopUpBooking(popUpBookingClone);
   };
@@ -372,31 +378,7 @@ function Booking(props) {
         </div>
       </div>
       {popUpBooking.states && (
-        <div className="btn-form">
-          <form
-            action="mailto:contact@yourdomain.com"
-            method="POST"
-            encType="text/plain"
-            name="EmailForm"
-          >
-            <div className="form-item">
-              <label htmlFor="name">Name:</label>
-              <input type="text" id="name" name="name" />
-            </div>
-            <div className="form-item">
-              <label htmlFor="ContactComments">Message:</label>
-              <textarea
-                name="”ontactComments”"
-                id="”ontactComments”"
-                cols="20"
-                rows="6"
-              ></textarea>
-            </div>
-            <div className="form-item">
-              <input type="submit" value="Send" />
-            </div>
-          </form>
-        </div>
+        <FormBooking lang={lang} popUpBooking={popUpBooking} />
       )}
     </>
   );
@@ -404,7 +386,8 @@ function Booking(props) {
 
 export default Booking;
 
-/* <table className="schedule-table">
+/* 
+<table className="schedule-table">
         <caption>
           {lang === "en"
             ? bookingText.table.caption.en
