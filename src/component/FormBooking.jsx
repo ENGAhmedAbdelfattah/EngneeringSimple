@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { encode } from "url-encode-decode";
+import axios from "axios";
 
 function FormBooking(props) {
   const { popUpBooking, lang } = props;
+  // state
   const [form, setForm] = useState({
     name: ``,
     massage: ``,
@@ -25,6 +27,13 @@ function FormBooking(props) {
       body: ``,
     },
   });
+  const [serverData, setServerData] = useState(null);
+  // lifecycle hooks
+  useEffect( () => {
+    const { data } = axios.get("/all");
+    setServerData(data)
+  }, []);
+  // methods
   const handleChange = (e) => {
     //   clone
     let formClone = { ...form };
@@ -65,10 +74,14 @@ function FormBooking(props) {
     // setState
     setFormText(formTextClone);
   };
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
+    console.log(e);
+  };
   return (
     <div className="btn-form">
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="form-item">
           <p className="booking-on">
             Booking on:
@@ -112,9 +125,12 @@ function FormBooking(props) {
         </div>
         <div className="form-item">
           {form.validate ? (
-            <a className="send-link" href={formText.mail.body}>
-              {formText.send}
-            </a>
+            <>
+              <a className="send-link" href={formText.mail.body}>
+                {formText.send}
+              </a>
+              <input type="submit" value="submit" />
+            </>
           ) : (
             <div>
               <div className="send-link" href={formText.mail.body}>
@@ -129,17 +145,3 @@ function FormBooking(props) {
 }
 
 export default FormBooking;
-
-/*
-<a href="mailto:لللللل?subject=%D9%84%D9%84%D9%84%D9%84%D9%84%D9%84&body=%D9%84%D9%84%D9%84%D9%84%D9%84%D9%84%D9%84%D9%84">
-  للللل
-</a>;
-*/
-
-// const { encode, decode } = require('url-encode-decode')
-
-// encode('foo bar baz') // 'foo+bar+baz'
-// encode(`Hi! How? & you person/\\`) // 'Hi%21+How%3F+%26+you+person%2F%5C'
-
-// decode('foo+bar+baz') // 'foo bar baz'
-// decode('Hi%21+How%3F+%26+you+person%2F%5C') // `
