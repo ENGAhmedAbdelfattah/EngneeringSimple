@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import FormBooking from "../FormBooking";
+// import FormBooking from "../FormBooking";
 
 function Booking(props) {
   const { lang } = props;
