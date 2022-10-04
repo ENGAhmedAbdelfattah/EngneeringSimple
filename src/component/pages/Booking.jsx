@@ -377,14 +377,15 @@ function Booking(props) {
           ))}
         </div>
       </div>
-      { *popUpBooking.states && (
-        <FormBooking lang={lang} popUpBooking={popUpBooking} />
-      ) *}
     </>
   );
 }
 
 export default Booking;
+
+// {popUpBooking.states && (
+// <FormBooking lang={lang} popUpBooking={popUpBooking} />
+// )}
 
 /* 
 <table className="schedule-table">
