@@ -377,9 +377,9 @@ function Booking(props) {
           ))}
         </div>
       </div>
-      {popUpBooking.states && (
+      { *popUpBooking.states && (
         <FormBooking lang={lang} popUpBooking={popUpBooking} />
-      )}
+      ) *}
     </>
   );
 }
